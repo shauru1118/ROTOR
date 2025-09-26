@@ -88,9 +88,10 @@ def delete_report(report_id:int):
     conn.close()
 
 
-# if __name__ == "__main__":
-#     con = sql.connect(DB_FILE_NAME)
-#     cur = con.cursor()
-#     cur.execute("DROP TABLE reports")
-#     con.commit()
-#     con.close()
+if __name__ == "__main__":
+    Init()
+    add_user(User("admin", "admin", "https://vk.com/sargsyan_albert", 777777))
+    add_user(User("Ivan_Trufanov", "123456", "https://vk.com/ivan_trufanov", 123456))
+
+    print(get_user("Ivan_Trufanov"))
+
