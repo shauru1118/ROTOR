@@ -1,3 +1,4 @@
+import re
 from flask import Flask, render_template, request, jsonify, redirect, url_for
 from flask_cors import CORS
 import db
@@ -34,7 +35,8 @@ def admin_panel():
 
 @app.route("/employees")
 def employees():
-    
+    if request.args.get("login") not in ADMIN_LOGINS: 
+        return redirect(url_for("employee_dashboard", login=request.args.get("login")))
     return render_template("employees.html", users=db.get_users(), 
                             user=db.get_user(request.args.get("login")))
 
