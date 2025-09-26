@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ROTOR — Админ панель</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="navbar">
+    <a href="employee_dashboard?login={{user.login}}">Личный кабинет</a>
+    <a href="employees?login={{user.login}}">Список сотрудников</a>
+    <a href="routes?login={{user.login}}">Маршруты</a>
+    <a href="vehicles?login={{user.login}}">Список ПС</a>
+    <a href="submit_route?login={{user.login}}">Маршрутный лист</a>
+    <a href="admin_panel?login={{user.login}}">Админ панель</a>
+    <a href="charter?login={{user.login}}">Устав</a>
+  </div>
+
+
+  <div class="container">
+    <h1>Админ панель</h1>
+
+    <div class="card">
+      <h2>Регистрация пользователя</h2>
+      <form action="/add_user?login={{user.login}}" method="post">
+        <label>Ник:<input name="login" required></label>
+        <label>Пароль:<input type="password" name="password" required></label>
+        <label>ВК:<input name="vk"></label>
+        <label>Счёт:<input name="account"></label>
+        <button type="submit">Зарегистрировать</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Статистика водителей</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Ник</th>
+            <th>Кругорейсов</th>
+            <th>Пассажиров</th>
+            <th>Зарплата</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in users %}
+          <tr>
+            <td>{{ user.login }}</td>
+            <td>{{ user.total_routes }}</td>
+            <td>{{ user.total_passengers }}</td>
+            <td>{{ user.salary }} ₽</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Проверка маршрутных листов</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Ник</th>
+            <th>Кругорейсов</th>
+            <th>Пассажиров</th>
+            <th>Надбавка</th>
+            <th>Действие</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for report in reports %}
+          <tr>
+            <td>{{ report.user_login }}</td>
+            <td>{{ report.routes }}</td>
+            <td>{{ report.passengers }}</td>
+            <td>{{ report.fuel_bonus }} ₽</td>
+            <td>
+              <button>Одобрить</button>
+              <button>Отклонить</button>
+              <button>Корректировать</button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>

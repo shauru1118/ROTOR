@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Список ПС</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="navbar">
+    <a href="employee_dashboard?login={{user.login}}">Личный кабинет</a>
+    <a href="employees?login={{user.login}}">Список сотрудников</a>
+    <a href="routes?login={{user.login}}">Маршруты</a>
+    <a href="vehicles?login={{user.login}}">Список ПС</a>
+    <a href="submit_route?login={{user.login}}">Маршрутный лист</a>
+    <a href="admin_panel?login={{user.login}}">Админ панель</a>
+    <a href="charter?login={{user.login}}">Устав</a>
+  </div>
+
+
+  <main class="container">
+    <h1>Список подвижного состава</h1>
+
+    <div class="table-card">
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>Бортовой номер</th>
+            <th>Номерной знак</th>
+            <th>Модель</th>
+            <th>Состояние</th>
+            <th>Примечание</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1000</td>
+            <td>Н 783 БО 77</td>
+            <td>ПАЗ-320405-04 «Вектор Next»</td>
+            <td>Эксплуатируется</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>1001</td>
+            <td></td>
+            <td>ЛиАЗ-5292.22</td>
+            <td>Не был в эксплуатации в этом предприятии</td>
+            <td>Находится на заводе</td>
+          </tr>
+          <tr>
+            <td>1002</td>
+            <td></td>
+            <td>ЛиАЗ 677М</td>
+            <td>Не эксплуатируется</td>
+            <td>Дедморобус</td>
+          </tr>
+          <tr>
+            <td>1003</td>
+            <td>С 142 АУ 77</td>
+            <td>Scania OmniLink CK95UB 4×2 LB (2 doors)</td>
+            <td>Эксплуатируется</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>1004</td>
+            <td></td>
+            <td>Mercedes-Benz Sprinter Classic 411 CDI (AS3)</td>
+            <td>Не был в эксплуатации в этом предприятии</td>
+            <td>Находится на заводе</td>
+          </tr>
+          <tr>
+            <td>1005</td>
+            <td>Х 363 СР 77</td>
+            <td>ПАЗ-4230 «Аврора»</td>
+            <td>Эксплуатируется</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>1006</td>
+            <td>В 057 ОК 77</td>
+            <td>Mercedes-Benz Sprinter Classic 411 CDI (Base)</td>
+            <td>Эксплуатируется</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="summary">Общее количество ПС: <strong>7</strong></p>
+    </div>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ROTOR — Профиль водителя</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="navbar">
+    <a href="employee_dashboard?login={{user.login}}">Личный кабинет</a>
+    <a href="employees?login={{user.login}}">Список сотрудников</a>
+    <a href="routes?login={{user.login}}">Маршруты</a>
+    <a href="vehicles?login={{user.login}}">Список ПС</a>
+    <a href="submit_route?login={{user.login}}">Маршрутный лист</a>
+    <a href="admin_panel?login={{user.login}}">Админ панель</a>
+    <a href="charter?login={{user.login}}">Устав</a>
+  </div>
+
+  <h1>Профиль водителя</h1>
+  <section class="card">
+    <h2>Статистика (за всё время)</h2>
+    <ul>
+      <li>Всего кругорейсов: <!-- {{total_rounds}} --></li>
+      <li>Всего пассажиров: <!-- {{total_passengers}} --></li>
+    </ul>
+  </section>
+
+
+  <section class="card">
+    <h2>Статистика по полупериодам</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Период</th>
+          <th>Кругорейсов</th>
+          <th>Пассажиров</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1–15</td>
+          <td><!-- {{r1}} --></td>
+          <td><!-- {{p1}} --></td>
+        </tr>
+        <tr>
+          <td>16–30/31</td>
+          <td><!-- {{r2}} --></td>
+          <td><!-- {{p2}} --></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+
+  <section class="card">
+    <h2>Текущая зарплата за полупериод</h2>
+    <p><!-- {{current_pay}} --> руб.</p>
+  </section>
+
+
+  <section class="card">
+    <h2>Сменить пароль</h2>
+    <form method="post" action="/change-password" class="form-card">
+      <input type="hidden" name="login" value="<!-- {{login}} -->">
+      <label>Старый пароль:<br><input name="old_password" type="password" required></label><br>
+      <label>Новый пароль:<br><input name="new_password" type="password" required></label><br>
+      <button type="submit">Сменить</button>
+    </form>
+  </section>
+
+
+  <p><a href="employees?login={{user.login}}">← К списку сотрудников</a></p>
+</body>
+
+</html>

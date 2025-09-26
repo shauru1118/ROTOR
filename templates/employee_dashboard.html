@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ROTOR — Панель сотрудника</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="navbar">
+    <a href="employee_dashboard?login={{user.login}}">Личный кабинет</a>
+    <a href="employees?login={{user.login}}">Список сотрудников</a>
+    <a href="routes?login={{user.login}}">Маршруты</a>
+    <a href="vehicles?login={{user.login}}">Список ПС</a>
+    <a href="submit_route?login={{user.login}}">Маршрутный лист</a>
+    <a href="admin_panel?login={{user.login}}">Админ панель</a>
+    <a href="charter?login={{user.login}}">Устав</a>
+  </div>
+
+
+  <div class="dashboard">
+    <div class="tile">
+      <h3>Никнейм</h3>
+      <p class="highlight">{{ user.login }}</p>
+    </div>
+
+    <div class="tile">
+      <h3>Статистика всего</h3>
+      <p>Кругорейсов: <span class="highlight">{{ user.total_routes }}</span></p>
+      <p>Пассажиров: <span class="highlight">{{ user.total_passengers }}</span></p>
+    </div>
+
+    <div class="tile">
+      <h3>Текущий полупериод</h3>
+      <p>Кругорейсов: <span class="highlight">{{ user.period_routes }}</span></p>
+      <p>Пассажиров: <span class="highlight">{{ user.period_passengers }}</span></p>
+    </div>
+
+    <div class="tile">
+      <h3>Оклад за полупериод</h3>
+      <p class="highlight">{{ user.salary }} ₽</p>
+    </div>
+
+    <div class="tile important">
+      {{ user.important_info }}
+    </div>
+  </div>
+</body>
+
+</html>
